@@ -1,0 +1,32 @@
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+#countryName = Country Name (2 letter code)
+#countryName_default = PT
+#stateOrProvinceName = State or Province Name (full name)
+#stateOrProvinceName_default = Aveiro
+#localityName = Locality Name (eg, city)
+#localityName_default = Santa Maria da Feira
+#organizationalUnitName = Organizational Unit Name (eg, section)
+#organizationalUnitName_default = Voicis
+#commonName = Common Name (hostname, IP, or your name)
+#commonName_max = 64
+C                      = PT
+ST                     = Aveiro
+L                      = Santa Maria da Feira
+O                      = ITCenter
+OU                     = Voicis
+CN                     = localhost
+
+[ v3_req ]
+# Extensions to add to a certificate request
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = itcenter.onsip.com
+IP.1 = $ENV::DOCKER_SERVER

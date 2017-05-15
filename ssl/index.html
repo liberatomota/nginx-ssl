@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+</head>
+
+<body>
+  <p>Install this certificate:</p>
+  <ul>
+    <li>
+      <a href="rootCA.crt">rootCA.crt</a>
+    </li>
+  </ul>
+  <button onclick="test()" disabled></button>
+  <script type="text/javascript">
+    var button = document.getElementsByTagName('button');
+    if (window.location.protocol != 'https:') {
+      button[0].innerHTML = 'Test SSL';
+      button[0].disabled = false;
+    } else {
+      button[0].innerHTML = 'SSL OK :)';
+      button[0].disabled = true;
+    }
+
+    function test() {
+      if (location.protocol != 'https:') {
+        location.href = 'https:' + location.href.substring(location.protocol.length);
+      }
+    }
+  </script>
+</body>
+
+</html>
